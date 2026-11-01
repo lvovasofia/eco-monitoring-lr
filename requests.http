@@ -7,8 +7,8 @@ POST http://localhost:3000/api/air-quality
 Content-Type: application/json
 
 {
-  "station_id": "station_kyiv_02",
-  "station_name": "Центральна станція",
+  "station_id": "station_kyiv_03",
+  "station_name": "Центральна станція 3",
   "city": "Київ",
   "location": {
     "type": "Point",
@@ -31,19 +31,19 @@ Content-Type: application/json
 GET http://localhost:3000/api/air-quality?city=Київ
 
 ### 4. Отримати конкретний запис за ID 
-GET http://localhost:3000/api/air-quality/6ae6f345cf0d87264587c469
+GET http://localhost:3000/api/air-quality/6ae77e3f25ea7c3bbaebad45
 
 
 ### 5. Оновлення 
-PUT http://localhost:3000/api/air-quality/6ae6f345cf0d87264587c469
+PUT http://localhost:3000/api/air-quality/6ae77e3f25ea7c3bbaebad45
 Content-Type: application/json
 
 {
-  "station_name": "Тестова оновлена станція 1"
+  "station_name": "Тестова оновлена станція 5"
 }
 
 ### 6. Видалити запис за ID (DELETE)
-DELETE http://localhost:3000/api/air-quality/6ae6f345cf0d87264587c469
+DELETE http://localhost:3000/api/air-quality/6ae77e3f25ea7c3bbaebad45
 
 ### Імпорт даних зі станції SaveEcoBot
 POST http://localhost:3000/api/air-quality/import/saveecobot
