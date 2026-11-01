@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import airQualityRouter from './routes/airQuality.js'; // 1. Імпортуємо роутер
 
 const app = express();
 
@@ -9,6 +10,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.json({ success: true, message: 'Сервер екологічного моніторингу працює!' });
 });
+
+app.use('/api/air-quality', airQualityRouter);
 
 // Обробник помилки 404 (якщо маршрут не знайдено)
 app.use((req, res) => {
