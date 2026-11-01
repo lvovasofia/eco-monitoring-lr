@@ -1,17 +1,13 @@
 ### 1. Перевірка головної сторінки сервера
 GET http://localhost:3000/
 
-### ==========================================
-### МАРШРУТИ AIR QUALITY
-### ==========================================
-
 ### 2. Створити новий запис (POST)
 # @name createRecord
 POST http://localhost:3000/api/air-quality
 Content-Type: application/json
 
 {
-  "station_id": "station_kyiv_01",
+  "station_id": "station_kyiv_02",
   "station_name": "Центральна станція",
   "city": "Київ",
   "location": {
@@ -35,20 +31,19 @@ Content-Type: application/json
 GET http://localhost:3000/api/air-quality?city=Київ
 
 ### 4. Отримати конкретний запис за ID 
-# (Замініть ID нижче на реальний _id, який ви отримали при створенні)
-GET http://localhost:3000/api/air-quality/6450f3a...тут_ваш_id
+GET http://localhost:3000/api/air-quality/6ae6f345cf0d87264587c469
 
-### 5. Оновити запис за ID (PUT)
-PUT http://localhost:3000/api/air-quality/6450f3a...тут_ваш_id
+
+### 5. Оновлення 
+PUT http://localhost:3000/api/air-quality/6ae6f345cf0d87264587c469
 Content-Type: application/json
 
 {
-  "aqi": 55,
-  "quality": "suspect"
+  "station_name": "Тестова оновлена станція 1"
 }
 
 ### 6. Видалити запис за ID (DELETE)
-DELETE http://localhost:3000/api/air-quality/6450f3a...тут_ваш_id
+DELETE http://localhost:3000/api/air-quality/6ae6f345cf0d87264587c469
 
 ### Імпорт даних зі станції SaveEcoBot
 POST http://localhost:3000/api/air-quality/import/saveecobot

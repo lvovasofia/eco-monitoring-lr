@@ -22,7 +22,7 @@ router.post('/import/saveecobot', async (req, res) => {
     }
 });
 
-// 1. CREATE (Створення нового вимірювання) - POST /api/air-quality
+// 1. CREATE (Створення нового вимірювання)
 router.post('/', async (req, res) => {
     try {
         const { station_id, station_name, city, location, measured_at, values, aqi, quality, source } = req.body;
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// 2. READ (Отримання всіх записів із фільтрацією за містом або станцією) - GET /api/air-quality
+// 2. READ (Отримання всіх записів із фільтрацією за містом або станцією) 
 router.get('/', async (req, res) => {
     try {
         const { city, station_id, limit = 50 } = req.query;
@@ -69,7 +69,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// 3. READ (Отримання конкретного запису за ID) - GET /api/air-quality/:id
+// 3. READ (Отримання конкретного запису за ID)
 router.get('/:id', async (req, res) => {
     try {
         const record = await AirQuality.findById(req.params.id);
@@ -84,7 +84,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// 4. UPDATE (Оновлення запису за ID) - PUT /api/air-quality/:id
+// 4. UPDATE (Оновлення запису за ID)
 router.put('/:id', async (req, res) => {
     try {
         const updatedRecord = await AirQuality.findByIdAndUpdate(
@@ -103,7 +103,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// 5. DELETE (Видалення запису за ID) - DELETE /api/air-quality/:id
+// 5. DELETE (Видалення запису за ID) 
 router.delete('/:id', async (req, res) => {
     try {
         const deletedRecord = await AirQuality.findByIdAndDelete(req.params.id);
