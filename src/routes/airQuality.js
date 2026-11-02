@@ -5,7 +5,6 @@ import { AirQuality } from '../model/AirQuality.js';
 
 const router = express.Router();
 
-// POST — створення нового вимірювання
 router.post('/', async (req, res) => {
     try {
         const {
@@ -50,7 +49,6 @@ router.post('/', async (req, res) => {
 });
 
 
-// GET — отримання всіх вимірювань
 router.get('/', async (req, res) => {
     try {
         const { city, station_id, limit = 50 } = req.query;
@@ -93,7 +91,7 @@ router.get('/', async (req, res) => {
 });
 
 
-// GET — отримання вимірювання за ID
+
 router.get('/:id', async (req, res) => {
     try {
         if (!mongoose.isValidObjectId(req.params.id)) {
@@ -127,7 +125,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// PUT — оновлення вимірювання
 router.put('/:id', async (req, res) => {
     try {
         if (!mongoose.isValidObjectId(req.params.id)) {
@@ -197,7 +194,7 @@ router.put('/:id', async (req, res) => {
 });
 
 
-// DELETE — видалення вимірювання
+
 router.delete('/:id', async (req, res) => {
     try {
         if (!mongoose.isValidObjectId(req.params.id)) {
