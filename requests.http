@@ -1,16 +1,16 @@
-
 ### 1. Перевірка головної сторінки сервера
 GET http://localhost:3000/
 
-### 2. Створити новий запис (POST)
-# @name createRecord
+### Створення нового вимірювання (POST)
 POST http://localhost:3000/api/air-quality
 Content-Type: application/json
 
 {
-  "station_id": "station_kyiv_08",
+  "station_id": "station_kyiv_34",
   "station_name": "Центральна станція 3",
-  "city": "Львів",
+  "city": "Київ",
+  "latitude": 50.4501,
+  "longitude": 30.5234,
   "location": {
     "type": "Point",
     "coordinates": [30.5234, 50.4501]
@@ -20,27 +20,37 @@ Content-Type: application/json
     "pm25": 12.5,
     "pm10": 25.0,
     "temperature": 18.5,
-    "humidity": 60,
-    "no2_ug": 15.2
-  },
-  "aqi": 45,
-  "quality": "valid",
-  "source": "manual"
+    "humidity": 60
+  }
 }
 
-### 3. Отримати всі записи (GET з фільтром за містом)
-GET http://localhost:3000/api/air-quality?city=Київ
+### 3. Отримання всіх вимірювань (GET)
+GET http://localhost:3000/api/air-quality
 
-### 4. Отримати конкретний запис за ID
-GET http://localhost:3000/api/air-quality/6ae86a33618a984512e2ae22
 
-### 5. Оновлення (PUT)
-PUT http://localhost:3000/api/air-quality/6ae86a33618a984512e2ae22
+### 4. Отримання вимірювань із фільтром за містом (GET)
+GET http://localhost:3000/api/air-quality?city=Львів
+
+
+### 5. Отримання одного вимірювання за ID (GET)
+# Встав ID, отриманий після виконання POST-запиту
+GET http://localhost:3000/api/air-quality/6ae79d541a1f5860ac6d4456
+
+
+### 6. Оновлення вимірювання (PUT)
+# Використовуй той самий ID
+PUT http://localhost:3000/api/air-quality/6ae79d541a1f5860ac6d4456
 Content-Type: application/json
 
 {
-  "station_name": "Тестова оновлена станція 5"
+  "station_name": "Центральна станція 1 — оновлена",
+  "pm25": 15.2,
+  "pm10": 28.7,
+  "temperature": 19.0,
+  "humidity": 58
 }
 
-### 6. Видалити запис за ID (DELETE)
-DELETE http://localhost:3000/api/air-quality/6ae86a33618a984512e2ae22
+
+### . Видалення вимірювання (DELETE)
+DELETE http://localhost:3000/api/air-quality/6ae79d541a1f5860ac6d4456
+

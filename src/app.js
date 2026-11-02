@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import airQualityRouter from './routes/airQuality.js'; // 1. Імпортуємо роутер
+import airQualityRouter from './routes/airQuality.js'; 
 
 const app = express();
 
@@ -13,12 +13,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/air-quality', airQualityRouter);
 
-// Обробник помилки 404 (якщо маршрут не знайдено)
 app.use((req, res) => {
     res.status(404).json({ success: false, error: `Маршрут ${req.originalUrl} не існує` });
 });
 
-// Головний обробник помилок (має рівно 4 аргументи)
 app.use((err, req, res, next) => {
     console.error(err.stack);
     const status = err.status || 500;
