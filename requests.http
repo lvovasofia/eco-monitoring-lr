@@ -11,17 +11,11 @@ Content-Type: application/json
   "city": "Київ",
   "latitude": 50.4501,
   "longitude": 30.5234,
-  "location": {
-    "type": "Point",
-    "coordinates": [30.5234, 50.4501]
-  },
-  "measured_at": "2026-11-01T10:00:00.000Z",
-  "values": {
-    "pm25": 12.5,
-    "pm10": 25.0,
-    "temperature": 18.5,
-    "humidity": 60
-  }
+  "measured_at": "2026-11-01T11:30:00.000Z",
+  "pm25": 12.5,
+  "pm10": 25.0,
+  "temperature": 18.5,
+  "humidity": 60
 }
 
 ### 3. Отримання всіх вимірювань (GET)
@@ -33,11 +27,11 @@ GET http://localhost:3000/api/air-quality?city=Львів
 
 
 ### 5. Отримання одного вимірювання за ID (GET)
-GET http://localhost:3000/api/air-quality/6ae79d541a1f5860ac6d4456
+GET http://localhost:3000/api/air-quality/6ae794da25ea7c3bbaebf68f
 
 
 ### 6. Оновлення вимірювання (PUT)
-PUT http://localhost:3000/api/air-quality/6ae79d541a1f5860ac6d4456
+PUT http://localhost:3000/api/air-quality/6ae794da25ea7c3bbaebf68f
 Content-Type: application/json
 
 {
@@ -50,5 +44,5 @@ Content-Type: application/json
 
 
 ### . Видалення вимірювання (DELETE)
-DELETE http://localhost:3000/api/air-quality/6ae79d541a1f5860ac6d4456
+DELETE http://localhost:3000/api/air-quality/6ae794da25ea7c3bbaebf68f
 
