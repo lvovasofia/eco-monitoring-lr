@@ -6,7 +6,7 @@ POST http://localhost:3000/api/air-quality
 Content-Type: application/json
 
 {
-  "station_id": "station_kyiv_34",
+  "station_id": "station_kyiv_39",
   "station_name": "Центральна станція 3",
   "city": "Київ",
   "latitude": 50.4501,
@@ -27,15 +27,15 @@ GET http://localhost:3000/api/air-quality?city=Львів
 
 
 ### 5. Отримання одного вимірювання за ID (GET)
-GET http://localhost:3000/api/air-quality/6ae794da25ea7c3bbaebf68f
+GET http://localhost:3000/api/air-quality/6ae886b23610a69cc900d337
 
 
 ### 6. Оновлення вимірювання (PUT)
-PUT http://localhost:3000/api/air-quality/6ae794da25ea7c3bbaebf68f
+PUT http://localhost:3000/api/air-quality/6ae886b23610a69cc900d337
 Content-Type: application/json
 
 {
-  "station_name": "Центральна станція 1 — оновлена",
+  "station_name": "Центральна станція 325 — оновлена",
   "pm25": 15.2,
   "pm10": 28.7,
   "temperature": 19.0,
@@ -44,5 +44,5 @@ Content-Type: application/json
 
 
 ### . Видалення вимірювання (DELETE)
-DELETE http://localhost:3000/api/air-quality/6ae794da25ea7c3bbaebf68f
+DELETE http://localhost:3000/api/air-quality/6ae886b23610a69cc900d337
 

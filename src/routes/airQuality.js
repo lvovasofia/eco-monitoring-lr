@@ -51,21 +51,16 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const { city, station_id, limit = 50 } = req.query;
+        const { city, limit = 50 } = req.query;
 
-        const filter = {};
+const filter = {};
 
-        if (city) {
-            filter.city = {
-                $regex: city,
-                $options: 'i'
-            };
-        }
-
-        if (station_id) {
-            filter.station_id = station_id;
-        }
-
+if (city) {
+    filter.city = {
+        $regex: city,
+        $options: 'i'
+    };
+}
         const parsedLimit = Math.min(
             Math.max(parseInt(limit, 10) || 50, 1),
             100
