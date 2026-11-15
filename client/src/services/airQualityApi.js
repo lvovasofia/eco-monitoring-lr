@@ -26,3 +26,39 @@ export async function getAirQuality(city = '') {
 
   return result.data;
 }
+
+
+async function sendRequest(url, method, body) {
+  let response;
+
+  try {
+    response = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  } catch {
+    throw new Error('Сервер не відповідає.');
+  }
+
+  const result = await response.json().catch(() => ({}));
+
+  if (!response.ok || !result.success) {
+    const details = result.error ? `: ${result.error}` : '';
+    throw new Error(`${result.message || `Помилка сервера: ${response.status}`}${details}`);
+  }
+
+  return result;
+}
+
+export function createAirQuality(measurement) {
+  return sendRequest(API_URL, 'POST', measurement);
+}
+
+export function updateAirQuality(id, measurement) {
+  return sendRequest(`${API_URL}/${id}`, 'PUT', measurement);
+}
+
+export function deleteAirQuality(id) {
+  return sendRequest(`${API_URL}/${id}`, 'DELETE');
+}

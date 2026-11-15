@@ -1,0 +1,54 @@
+@import './buttons.css';
+
+.dc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 28, 36, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dc-dialog {
+  background: #fff;
+  border-radius: 10px;
+  padding: 22px 24px;
+  width: min(420px, 92vw);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.dc-dialog__title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  color: #1f2d3d;
+}
+
+.dc-dialog__details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 14px;
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+
+.dc-dialog__details dt {
+  color: #6b7680;
+}
+
+.dc-dialog__details dd {
+  margin: 0;
+  color: #1f2d3d;
+}
+
+.dc-dialog__warning {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #c0392b;
+}
+
+.dc-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
