@@ -1,5 +1,4 @@
-
-function AirQualityTable({ records }) {
+function AirQualityTable({ records, selectedId, onSelect }) {
   if (records.length === 0) {
     return <p>Немає даних для відображення.</p>;
   }
@@ -25,7 +24,14 @@ function AirQualityTable({ records }) {
 
         <tbody>
           {records.map((record) => (
-            <tr key={record._id}>
+            <tr
+              key={record._id}
+              onClick={onSelect ? () => onSelect(record) : undefined}
+              className={[
+                onSelect ? 'selectable' : '',
+                record._id === selectedId ? 'selected' : '',
+              ].join(' ').trim() || undefined}
+            >
               <td>{record.station_name}</td>
               <td>{record.city}</td>
               <td>{formatValue(record, 'pm25')}</td>
